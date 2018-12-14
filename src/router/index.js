@@ -1,42 +1,44 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import index from '@/components/index'
-import input from '@/components/input'
-import parsed from '@/components/parsed'
-import output from '@/components/output'
-import monthly from '@/components/monthly'
-import article from '@/components/article'
+import genPPT from '@/components/gen-ppt/index'
+import input from '@/components/gen-ppt/input'
+import parsed from '@/components/gen-ppt/parsed'
+import output from '@/components/gen-ppt/output'
+import genMonthly from '@/components/gen-monthly/monthly'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [{
     path: '/',
-    name: 'index',
-    component: index,
-    redirect: '/input',
+    name: '威盛工具',
+    redirect: '/gen-ppt/input',
+  }, {
+    path: '/gen-ppt',
+    name: 'ppt生成工具',
+    component: genPPT,
+    redirect: '/gen-ppt/input',
     children: [{
-      path: '/input',
-      name: 'input',
+      path: '/gen-ppt/input',
+      name: '文本',
       component: input,
     }, {
-      path: '/parsed',
-      name: 'parsed',
+      path: '/gen-ppt/parsed',
+      name: '解析',
       component: parsed,
     }, {
-      path: '/output',
-      name: 'output',
+      path: '/gen-ppt/output',
+      name: '导出',
       component: output,
     },]
   }, {
-    path: '/monthly',
+    path: '/gen-monthly',
     name: '月刊生成',
-    component: monthly,
-    redirect: '/article',
+    redirect: '/gen-monthly/article',
     children: [{
-      path: '/article',
+      path: '/gen-monthly/article',
       name: '月刊生成',
-      component: article,
+      component: genMonthly,
     }]
   }
   ]
