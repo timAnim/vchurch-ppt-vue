@@ -79,7 +79,7 @@ export default {
         if (res.body.code != 0) {
           return this.$notify.error({
             title: res.body.msg,
-            message: res.body.data,
+            message: res.body.msg,
             duration: 0
           });
         }
@@ -105,7 +105,7 @@ export default {
         if (res.body.code!= 0) {
           return this.$notify.error({
             title: res.body.msg,
-            message: res.body.data,
+            message: res.body.msg,
             duration: 0
           });
         }

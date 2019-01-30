@@ -4,8 +4,10 @@ import genPPT from '@/components/gen-ppt/index'
 import input from '@/components/gen-ppt/input'
 import parsed from '@/components/gen-ppt/parsed'
 import output from '@/components/gen-ppt/output'
-import genMonthly from '@/components/gen-monthly/monthly'
 
+import genHtml from '@/components/gen-html/index'
+
+import genMonthly from '@/components/gen-monthly/monthly'
 Vue.use(Router)
 
 export default new Router({
@@ -30,7 +32,11 @@ export default new Router({
       path: '/gen-ppt/output',
       name: '导出',
       component: output,
-    },]
+    }]
+  }, {
+    path: '/gen-html',
+    name: '公众号文章生成',
+    component: genHtml,
   }, {
     path: '/gen-monthly',
     name: '月刊生成',
@@ -40,6 +46,5 @@ export default new Router({
       name: '月刊生成',
       component: genMonthly,
     }]
-  }
-  ]
+  }]
 })
